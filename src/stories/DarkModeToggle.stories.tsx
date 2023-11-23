@@ -12,8 +12,13 @@ export default meta
 
 type Story = StoryObj<typeof DarkModeToggle>
 
-export const Primary: Story = () => (
-    <DarkModeToggle/>
+export const Simple: Story = () => (
+    <div className={'m-5 ml-14'}>
+        <DarkModeToggle/>
+        <div className={'border-2 dark:bg-gray-800 mt-10 w-64 text-center p-5'}>
+            <span className={'dark:text-white'}>To show that something is changing</span>
+        </div>
+    </div>
 )
 
-Primary.args = {}
+Simple.args = {}
