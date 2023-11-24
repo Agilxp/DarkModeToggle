@@ -1,6 +1,6 @@
 {
   "name": "DarkModeToggle",
-  "version": "1.0.0",
+  "version": "0.1",
   "description": "React component to toggle dark mode",
   "repository": "git@github.com:Agilxp/DarkModeToggle.git",
   "author": "Geoffrey Rekier <geoffrey@agilxp.com>",
@@ -10,8 +10,6 @@
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
-    "@headlessui/react": "^1.7.17",
-    "@heroicons/react": "^2.0.18",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
@@ -33,16 +31,20 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.31",
     "postcss-loader": "^7.3.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "rollup": "^4.5.1",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
     "storybook": "^7.5.3",
-    "tailwindcss": "^3.3.5",
     "tslib": "^2.6.2",
     "typescript": "^5.3.2"
+  },
+  "peerDependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.5"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
