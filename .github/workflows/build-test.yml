@@ -3,7 +3,8 @@ name: Build, test and report.
 on:
   push:
     branches:
-      - *
+      - '*'
+      - '**'
 
 jobs:
   build:
