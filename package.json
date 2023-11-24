@@ -1,6 +1,6 @@
 {
   "name": "@agilxp/dark-mode-toggle",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React component to toggle dark mode",
   "repository": "git@github.com:Agilxp/DarkModeToggle.git",
   "author": "Geoffrey Rekier <geoffrey@agilxp.com>",
