@@ -1,5 +1,5 @@
 {
-  "name": "DarkModeToggle",
+  "name": "@agilxp/DarkModeToggle",
   "version": "0.1",
   "description": "React component to toggle dark mode",
   "repository": "git@github.com:Agilxp/DarkModeToggle.git",
