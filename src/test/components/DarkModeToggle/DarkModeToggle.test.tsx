@@ -1,6 +1,7 @@
 import {fireEvent, render, screen} from '@testing-library/react'
 import DarkModeToggle from '../../../components/DarkModeToggle/DarkModeToggle'
 import React from 'react'
+import {TvIcon} from '@heroicons/react/24/outline'
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -58,5 +59,51 @@ describe('Running tests for DarkModeButton', () => {
         expect(dropDownSystemButton).toBeTruthy()
         fireEvent.click(dropDownSystemButton)
         expect(localStorage.theme).toBeUndefined()
+    })
+
+    test('Test match media match', () => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: true,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(), // deprecated
+                removeListener: jest.fn(), // deprecated
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            })),
+        })
+        render(<DarkModeToggle/>)
+        expect(document.documentElement.classList).toContain('dark')
+    })
+
+    test('Test match media not match match', () => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(), // deprecated
+                removeListener: jest.fn(), // deprecated
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            })),
+        })
+        render(<DarkModeToggle/>)
+        expect(document.documentElement.classList).not.toContain('dark')
+    })
+
+    test('Custom icons', () => {
+        render(<DarkModeToggle darkIcon={TvIcon} lightIcon={TvIcon} systemIcon={TvIcon}/>)
+        const dropDownDarkButton = screen.queryByLabelText('Dark Mode') as HTMLButtonElement
+        expect(dropDownDarkButton).toBe(null)
+        const dropDownSystemButton = screen.queryByLabelText('System Mode') as HTMLButtonElement
+        expect(dropDownSystemButton).toBe(null)
+        const dropDownLightButton = screen.queryByLabelText('Light Mode') as HTMLButtonElement
+        expect(dropDownLightButton).toBe(null)
     })
 })
