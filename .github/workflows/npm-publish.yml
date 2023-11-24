@@ -15,6 +15,21 @@ jobs:
       - run: yarn
       - run: yarn test
 
+  deploy-storybook:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.1
+        with:
+          install_command: yarn
+          build_command: yarn build-storybook
+          path: storybook-static
+          checkout: false
+
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
