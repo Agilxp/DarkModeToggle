@@ -20,6 +20,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
           scope: '@agilxp'
       - run: yarn
+      - run: cat /home/runner/work/_temp/.npmrc
       - run: yarn publish --access public --verbose
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
