@@ -20,7 +20,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
           scope: '@agilxp'
       - run: yarn
-      - run: yarn publish --access public
+      - run: yarn publish --access public --verbose
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - uses: ArtiomTr/jest-coverage-report-action@v2
