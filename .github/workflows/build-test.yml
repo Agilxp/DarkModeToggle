@@ -19,10 +19,7 @@ jobs:
           always-auth: true
           registry-url: https://registry.npmjs.org/
       - run: yarn
-      - run: cat /home/runner/work/_temp/.npmrc
-      - run: yarn publish --access public --verbose --new-version v0.1.4
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: yarn test
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           package-manager: yarn
