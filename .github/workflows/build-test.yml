@@ -18,7 +18,6 @@ jobs:
           cache: yarn
           always-auth: true
           registry-url: https://registry.npmjs.org/
-          scope: '@agilxp'
       - run: yarn
       - run: cat /home/runner/work/_temp/.npmrc
       - run: yarn publish --access public --verbose --new-version v0.1.4
