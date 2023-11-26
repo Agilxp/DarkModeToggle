@@ -1,3 +1,5 @@
+'use client'
+
 import React, {FC, Fragment, useEffect, useState} from 'react'
 import {Menu, Transition} from '@headlessui/react'
 import {ChevronDownIcon, ComputerDesktopIcon, MoonIcon, SunIcon} from '@heroicons/react/20/solid'
