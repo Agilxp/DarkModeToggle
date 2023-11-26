@@ -14,7 +14,18 @@ const DarkModeToggle: FC<DarkModeToggleTypes> = ({lightIcon, darkIcon, systemIco
     }
 
     const updateMode = () => {
-        if (!('theme' in localStorage)) {
+        // check if the setting already exists in localstorage or not
+        if ('theme' in localStorage) {
+            // if the setting exist in local storage, use it
+            if (localStorage.theme === 'dark') {
+                document.documentElement.classList.add('dark')
+                setMode({icon: dark.icon})
+            } else {
+                document.documentElement.classList.remove('dark')
+                setMode({icon: light.icon})
+            }
+        } else {
+            // if not, check if we can get it from the media query
             if (window) {
                 const mql = window.matchMedia('(prefers-color-scheme: dark)')
                 if (mql.matches) {
@@ -25,14 +36,6 @@ const DarkModeToggle: FC<DarkModeToggleTypes> = ({lightIcon, darkIcon, systemIco
                     setMode({icon: light.icon})
                 }
             }
-        } else {
-            if (localStorage.theme === 'dark') {
-                document.documentElement.classList.add('dark')
-                setMode({icon: dark.icon})
-            } else {
-                document.documentElement.classList.remove('dark')
-                setMode({icon: light.icon})
-            }
         }
     }
 
@@ -40,6 +43,7 @@ const DarkModeToggle: FC<DarkModeToggleTypes> = ({lightIcon, darkIcon, systemIco
         if (window) {
             const mql = window.matchMedia('(prefers-color-scheme: dark)')
             mql.addEventListener('change', () => {
+                // dark mode if local storage has the setting or not in local storage and media query matches
                 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && mql.matches)) {
                     document.documentElement.classList.add('dark')
                     setMode({icon: dark.icon})

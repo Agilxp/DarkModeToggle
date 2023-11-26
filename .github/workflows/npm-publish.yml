@@ -49,7 +49,7 @@ jobs:
           always-auth: true
           cache: yarn
       - run: yarn
-      - run: yarn publish --verbose
+      - run: yarn publish --access public --verbose
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 

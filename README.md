@@ -14,9 +14,9 @@ properly configured.
 ### Usage
 
 ```Bash
-npm install --save DarkModeToggle
+npm install --save @agilxp/dark-mode-toggle
 or
-yarn add DarkModeToggle
+yarn add @agilxp/dark-mode-toggle
 ```
 
 Change the `tailwind.config.js` to
@@ -30,7 +30,8 @@ module.exports = {
 }
 ```
 
-And add the component where you want to toggle light/dark mode with
+And add the component where you want to toggle light/dark mode with. It should be somewhere that shows up on all pages
+like navbar, header or footer.
 
 ```typescript jsx
 import DarkModeToggle from 'DarkModeToggle';
@@ -39,6 +40,7 @@ import DarkModeToggle from 'DarkModeToggle';
 ```
 
 ## Properties
+
 All props are optionals and used to override a default.
 
 | prop name  | default             |
@@ -47,10 +49,10 @@ All props are optionals and used to override a default.
 | darkIcon   | MoonIcon            |
 | systemIcon | ComputerDesktopIcon |
 
-
 ## Capabilities
 
 There are 3 possibilities when toggling:
+
 - light mode
 - dark mode
 - system (this will change based on the system preferences)
